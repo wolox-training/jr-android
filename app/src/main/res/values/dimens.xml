@@ -4,6 +4,7 @@
     <dimen name="static_spacing_tiniest">1dp</dimen>
     <dimen name="static_spacing_tiny">2dp</dimen>
     <dimen name="static_spacing_small">4dp</dimen>
+    <dimen name="static_spacing_medium_small">6dp</dimen>
     <dimen name="static_spacing_medium">8dp</dimen>
     <dimen name="static_spacing_medium_extra">16dp</dimen>
     <dimen name="static_spacing_large">20dp</dimen>
@@ -23,6 +24,7 @@
     <dimen name="spacing_medium_extra">12dp</dimen>
     <dimen name="spacing_large">16dp</dimen>
     <dimen name="spacing_large_extra">22dp</dimen>
+    <dimen name="spacing_large_big">24dp</dimen>
     <dimen name="spacing_big">28dp</dimen>
     <dimen name="spacing_big_extra">32dp</dimen>
     <dimen name="spacing_huge">38dp</dimen>
@@ -45,5 +47,8 @@
     <dimen name="font_big">22sp</dimen>
     <dimen name="font_huge">24sp</dimen>
 
-    <!-- Add your custom dimens here -->
+    <!-- Layout -->
+    <dimen name="layout_height">160dp</dimen>
+    <dimen name="layout_width">228dp</dimen>
+
 </resources>

@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <Button
+        android:id="@+id/login_button"
+        android:layout_width="@dimen/spacing_none"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/static_spacing_medium_extra"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="@dimen/static_spacing_medium_extra"
+        android:layout_marginBottom="@dimen/static_spacing_medium_extra"
+        android:background="@android:color/white"
+        android:fontFamily="sans-serif-condensed"
+        android:text="@string/fragment_login"
+        android:textColor="@color/colorButtonLoginText"
+        app:layout_constraintBottom_toTopOf="@+id/signup_button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/password_field" />
+
+    <Button
+        android:id="@+id/signup_button"
+        android:layout_width="@dimen/spacing_none"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/static_spacing_medium_extra"
+        android:layout_marginEnd="@dimen/static_spacing_medium_extra"
+        android:layout_marginBottom="@dimen/static_spacing_medium_extra"
+        android:background="@color/colorSignUpBackground"
+        android:fontFamily="sans-serif-condensed"
+        android:text="@string/fragment_signup"
+        android:textColor="@color/colorButtonSignupText"
+        app:layout_constraintBottom_toTopOf="@+id/terms_and_conditions_text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/login_button" />
+
+    <EditText
+        android:id="@+id/email_field"
+        android:layout_width="@dimen/spacing_none"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/static_spacing_medium_extra"
+        android:layout_marginTop="198dp"
+        android:layout_marginEnd="@dimen/static_spacing_medium_extra"
+        android:layout_marginBottom="@dimen/static_spacing_medium"
+        android:ems="10"
+        android:fontFamily="sans-serif-condensed"
+        android:hint="@string/fragment_email"
+        android:inputType="textEmailAddress"
+        android:textAlignment="center"
+        app:layout_constraintBottom_toTopOf="@+id/password_field"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/password_field"
+        android:layout_width="@dimen/spacing_none"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/static_spacing_medium_extra"
+        android:layout_marginTop="13dp"
+        android:layout_marginEnd="@dimen/static_spacing_medium_extra"
+        android:layout_marginBottom="@dimen/static_spacing_medium_extra"
+        android:ems="10"
+        android:fontFamily="sans-serif-condensed"
+        android:hint="@string/fragment_password"
+        android:inputType="textPassword"
+        android:textAlignment="center"
+        app:layout_constraintBottom_toTopOf="@+id/login_button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/email_field"
+        tools:text="@string/fragment_password" />
+
+    <ImageView
+        android:id="@+id/logo"
+        android:layout_width="@dimen/layout_width"
+        android:layout_height="@dimen/layout_height"
+        android:layout_marginStart="@dimen/static_spacing_medium_extra"
+        android:layout_marginTop="@dimen/static_spacing_medium_extra"
+        android:layout_marginEnd="@dimen/static_spacing_medium_extra"
+        android:layout_marginBottom="@dimen/static_spacing_medium_extra"
+        app:layout_constraintBottom_toTopOf="@+id/email_field"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/wolox_logo_large" />
+
+    <TextView
+        android:id="@+id/terms_and_conditions_text"
+        android:layout_width="@dimen/spacing_none"
+        android:layout_height="@dimen/static_spacing_large"
+        android:layout_marginStart="@dimen/static_spacing_medium_extra"
+        android:layout_marginTop="@dimen/spacing_large_big"
+        android:layout_marginEnd="@dimen/static_spacing_medium_extra"
+        android:text="@string/fragment_conditions"
+        android:textAlignment="center"
+        android:textSize="@dimen/font_medium"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/signup_button" />
+</androidx.constraintlayout.widget.ConstraintLayout>
