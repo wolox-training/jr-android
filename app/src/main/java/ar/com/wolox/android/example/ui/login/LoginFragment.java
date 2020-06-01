@@ -4,6 +4,8 @@ import android.content.Intent;
 import android.net.Uri;
 
 import ar.com.wolox.android.R;
+import ar.com.wolox.android.example.ui.home.HomeActivity;
+import ar.com.wolox.android.example.ui.signup.SignupActivity;
 import ar.com.wolox.wolmo.core.fragment.WolmoFragment;
 
 /**
@@ -36,6 +38,8 @@ public final class LoginFragment extends WolmoFragment<LoginPresenter> implement
     public void setListeners() {
         getView().findViewById(R.id.terms_and_conditions_text)
                 .setOnClickListener(it -> getPresenter().onTermsAndConditionsClicked());
+        getView().findViewById(R.id.login_button)
+                .setOnClickListener(it -> getPresenter().onLoginClicked());
         getView().findViewById(R.id.signup_button)
                 .setOnClickListener(it -> getPresenter().onSignupClicked());
     }
@@ -49,11 +53,13 @@ public final class LoginFragment extends WolmoFragment<LoginPresenter> implement
 
     @Override
     public void goToHomePage() {
-        // TODO
+        Intent intent = new Intent(getActivity(), HomeActivity.class);
+        startActivity(intent);
     }
 
     @Override
     public void goToSignupView() {
-        // TODO
+        Intent intent = new Intent(getActivity(), SignupActivity.class);
+        startActivity(intent);
     }
 }
