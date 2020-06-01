@@ -8,4 +8,8 @@ interface LoginView {
 
     void goToHomePage();
 
+    void invalidateEmail(String text);
+
+    void invalidatePassword(String text);
+
 }

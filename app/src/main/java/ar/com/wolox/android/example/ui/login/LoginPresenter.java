@@ -9,6 +9,7 @@ import ar.com.wolox.wolmo.core.presenter.BasePresenter;
  */
 public class LoginPresenter extends BasePresenter<LoginView> {
     private static final String URL = "http://www.wolox.com.ar";
+    private static final String REGEX_EMAIL = "^\\w+@[a-zA-Z_]+?\\.[a-zA-Z]{2,3}$";
 
     @Inject
     public LoginPresenter() {
@@ -23,8 +24,34 @@ public class LoginPresenter extends BasePresenter<LoginView> {
         this.getView().goToSignupView();
     }
 
-    public void onLoginClicked() {
-        this.getView().goToHomePage();
+    public void onLoginClicked(String email, String password) {
+        if (!fieldsAreEmpty(email, password) && !emailIsInvalid(email)) {
+            this.getView().goToHomePage();
+        }
+    }
+
+    private boolean fieldsAreEmpty(String email, String password) {
+        boolean emailIsEmpty = "".equals(email);
+        if (emailIsEmpty) {
+            this.getView().invalidateEmail("The email cannot be empty.");
+        }
+
+        boolean passwordIsEmpty = "".equals(password);
+        if (passwordIsEmpty) {
+            this.getView().invalidatePassword("The password cannot be empty.");
+        }
+
+        return emailIsEmpty || passwordIsEmpty;
+    }
+
+    private boolean emailIsInvalid(String email) {
+        boolean emailIsInvalid = !email.matches(REGEX_EMAIL);
+
+        if (emailIsInvalid) {
+            this.getView().invalidateEmail("The email does not have the correct format.");
+        }
+
+        return emailIsInvalid;
     }
 
 }
