@@ -48,6 +48,11 @@ public final class LoginFragment extends WolmoFragment<LoginPresenter> implement
     }
 
     @Override
+    public void goToHomePage() {
+        // TODO
+    }
+
+    @Override
     public void goToSignupView() {
         // TODO
     }

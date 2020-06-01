@@ -6,4 +6,6 @@ interface LoginView {
 
     void goToSignupView();
 
+    void goToHomePage();
+
 }

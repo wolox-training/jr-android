@@ -22,4 +22,9 @@ public class LoginPresenter extends BasePresenter<LoginView> {
     public void onSignupClicked() {
         this.getView().goToSignupView();
     }
+
+    public void onLoginClicked() {
+        this.getView().goToHomePage();
+    }
+
 }
