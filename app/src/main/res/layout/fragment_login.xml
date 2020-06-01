@@ -7,7 +7,7 @@
     android:layout_height="match_parent">
 
     <ImageView
-        android:id="@+id/cover"
+        android:id="@+id/vLoginCover"
         android:layout_width="@dimen/cover_width"
         android:layout_height="@dimen/cover_height"
         android:adjustViewBounds="true"
@@ -18,21 +18,21 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
-        android:id="@+id/logo"
+        android:id="@+id/vLoginLogo"
         android:layout_width="@dimen/logo_width"
         android:layout_height="@dimen/logo_height"
         android:layout_marginStart="@dimen/static_spacing_medium_extra"
         android:layout_marginTop="@dimen/logo_margin_top"
         android:layout_marginEnd="@dimen/static_spacing_medium_extra"
         android:layout_marginBottom="@dimen/static_spacing_medium_extra"
-        app:layout_constraintBottom_toTopOf="@+id/email_field"
+        app:layout_constraintBottom_toTopOf="@+id/vLoginEmailField"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/wolox_logo_large" />
 
     <EditText
-        android:id="@+id/email_field"
+        android:id="@+id/vLoginEmailField"
         android:layout_width="@dimen/spacing_none"
         android:layout_height="@dimen/field_height"
         android:layout_marginStart="@dimen/static_spacing_medium_extra"
@@ -42,13 +42,13 @@
         android:hint="@string/fragment_email"
         android:inputType="textEmailAddress"
         android:textAlignment="center"
-        app:layout_constraintBottom_toTopOf="@+id/password_field"
+        app:layout_constraintBottom_toTopOf="@+id/vLoginPasswordField"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/password_field"
+        android:id="@+id/vLoginPasswordField"
         android:layout_width="@dimen/spacing_none"
         android:layout_height="@dimen/field_height"
         android:layout_marginStart="@dimen/static_spacing_medium_extra"
@@ -58,14 +58,14 @@
         android:hint="@string/fragment_password"
         android:inputType="textPassword"
         android:textAlignment="center"
-        app:layout_constraintBottom_toTopOf="@+id/login_button"
+        app:layout_constraintBottom_toTopOf="@+id/vLoginLoginButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/email_field"
+        app:layout_constraintTop_toBottomOf="@+id/vLoginEmailField"
         tools:text="@string/fragment_password" />
 
     <Button
-        android:id="@+id/login_button"
+        android:id="@+id/vLoginLoginButton"
         android:layout_width="@dimen/spacing_none"
         android:layout_height="@dimen/field_height"
         android:layout_marginStart="@dimen/static_spacing_medium_extra"
@@ -75,13 +75,13 @@
         android:fontFamily="sans-serif-condensed"
         android:text="@string/fragment_login"
         android:textColor="@android:color/black"
-        app:layout_constraintBottom_toTopOf="@+id/signup_button"
+        app:layout_constraintBottom_toTopOf="@+id/vLoginSignupButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/password_field" />
+        app:layout_constraintTop_toBottomOf="@+id/vLoginPasswordField" />
 
     <Button
-        android:id="@+id/signup_button"
+        android:id="@+id/vLoginSignupButton"
         android:layout_width="@dimen/spacing_none"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/static_spacing_medium_extra"
@@ -91,13 +91,13 @@
         android:fontFamily="sans-serif-condensed"
         android:text="@string/fragment_signup"
         android:textColor="@android:color/white"
-        app:layout_constraintBottom_toTopOf="@+id/terms_and_conditions_text"
+        app:layout_constraintBottom_toTopOf="@+id/vLoginTermsAndConditionsText"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/login_button" />
+        app:layout_constraintTop_toBottomOf="@+id/vLoginLoginButton" />
 
     <TextView
-        android:id="@+id/terms_and_conditions_text"
+        android:id="@+id/vLoginTermsAndConditionsText"
         android:layout_width="@dimen/spacing_none"
         android:layout_height="@dimen/static_spacing_large"
         android:layout_marginStart="@dimen/static_spacing_medium_extra"
@@ -110,6 +110,6 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/signup_button" />
+        app:layout_constraintTop_toBottomOf="@+id/vLoginSignupButton" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
