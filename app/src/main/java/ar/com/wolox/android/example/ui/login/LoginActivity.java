@@ -4,7 +4,7 @@ import ar.com.wolox.android.R;
 import ar.com.wolox.wolmo.core.activity.WolmoActivity;
 
 /**
- *
+ *  Login activity class
  */
 public class LoginActivity extends WolmoActivity {
     @Override

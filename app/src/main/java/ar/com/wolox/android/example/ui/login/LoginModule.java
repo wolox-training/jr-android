@@ -12,7 +12,4 @@ public abstract class LoginModule {
     @ContributesAndroidInjector
     protected abstract LoginFragment loginFragment();
 
-    @ContributesAndroidInjector
-    protected abstract SignupFragment signupFragment();
-
 }

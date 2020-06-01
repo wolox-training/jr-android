@@ -3,7 +3,10 @@ package ar.com.wolox.android.example.ui.signup;
 import ar.com.wolox.android.R;
 import ar.com.wolox.wolmo.core.fragment.WolmoFragment;
 
-public class SignupFragment extends WolmoFragment<SignupPresenter> {
+/**
+ *  Sign up fragment class
+ */
+public final class SignupFragment extends WolmoFragment<SignupPresenter> {
 
     private static SignupFragment instance;
 

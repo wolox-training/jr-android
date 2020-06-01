@@ -3,7 +3,10 @@ package ar.com.wolox.android.example.ui.home;
 import ar.com.wolox.android.R;
 import ar.com.wolox.wolmo.core.fragment.WolmoFragment;
 
-public class HomeFragment extends WolmoFragment<HomePresenter> {
+/**
+ *  Home fragment class
+ */
+public final class HomeFragment extends WolmoFragment<HomePresenter> {
 
     private static HomeFragment instance;
 

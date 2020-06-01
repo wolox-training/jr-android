@@ -7,7 +7,7 @@ import ar.com.wolox.android.R;
 import ar.com.wolox.wolmo.core.fragment.WolmoFragment;
 
 /**
- *
+ *  Login fragment class
  */
 public final class LoginFragment extends WolmoFragment<LoginPresenter> implements LoginView {
 

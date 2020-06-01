@@ -3,6 +3,9 @@ package ar.com.wolox.android.example.ui.home;
 import ar.com.wolox.android.R;
 import ar.com.wolox.wolmo.core.activity.WolmoActivity;
 
+/**
+ *  Home activity class
+ */
 public class HomeActivity extends WolmoActivity {
     @Override
     protected int layout() {

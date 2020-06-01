@@ -5,7 +5,7 @@ import javax.inject.Inject;
 import ar.com.wolox.wolmo.core.presenter.BasePresenter;
 
 /**
- *
+ *  Login presenter class 
  */
 public class LoginPresenter extends BasePresenter<LoginView> {
     private static final String URL = "http://www.wolox.com.ar";
