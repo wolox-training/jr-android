@@ -2,6 +2,7 @@ package ar.com.wolox.android.example.ui.login;
 
 import android.content.Intent;
 import android.net.Uri;
+import android.widget.TextView;
 
 import ar.com.wolox.android.R;
 import ar.com.wolox.android.example.ui.home.HomeActivity;
@@ -14,6 +15,7 @@ import ar.com.wolox.wolmo.core.fragment.WolmoFragment;
 public final class LoginFragment extends WolmoFragment<LoginPresenter> implements LoginView {
 
     private static LoginFragment instance;
+    private static final String REGEX_EMAIL = "^\\w+@[a-zA-Z_]+?\\.[a-zA-Z]{2,3}$";
 
     private LoginFragment() {
     }
@@ -53,13 +55,40 @@ public final class LoginFragment extends WolmoFragment<LoginPresenter> implement
 
     @Override
     public void goToHomePage() {
-        Intent intent = new Intent(getActivity(), HomeActivity.class);
-        startActivity(intent);
+        if (!emailIsInvalid() && !passwordIsInvalid()) {
+            Intent intent = new Intent(getActivity(), HomeActivity.class);
+            startActivity(intent);
+        }
     }
 
     @Override
     public void goToSignupView() {
         Intent intent = new Intent(getActivity(), SignupActivity.class);
         startActivity(intent);
+    }
+
+    private boolean emailIsInvalid() {
+        TextView email = getView().findViewById(R.id.vLoginEmailField);
+
+        boolean emailIsEmpty = "".equals(email.getText().toString());
+        boolean emailIsInvalid = !email.getText().toString().matches(REGEX_EMAIL);
+
+        if (emailIsEmpty) {
+            email.setError("The email cannot be empty.");
+        }
+        if (emailIsInvalid) {
+            email.setError("The email does not have the correct format.");
+        }
+
+        return emailIsEmpty || emailIsInvalid;
+    }
+
+    private boolean passwordIsInvalid() {
+        TextView password = getView().findViewById(R.id.vLoginPasswordField);
+        boolean passwordIsInvalid = "".equals(password.getText().toString());
+        if (passwordIsInvalid) {
+            password.setError("The password cannot be empty.");
+        }
+        return passwordIsInvalid;
     }
 }
