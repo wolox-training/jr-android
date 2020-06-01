@@ -16,11 +16,12 @@
 	<string name="fragment_request_search">Search</string>
     <string name="fragment_request_post_id">Post id</string>
     <string name="fragment_request_invalid_input">Invalid input, please enter a valid id.</string>
+
     <!-- Login -->
-    <string name="fragment_email">Email</string>
-    <string name="fragment_password">Password</string>
-    <string name="fragment_login">Log in</string>
-    <string name="fragment_signup">Sign up</string>
-    <string name="fragment_conditions">By joining you agree with the terms and conditions.</string>
+    <string name="login_email">Email</string>
+    <string name="login_password">Password</string>
+    <string name="login_login">Log in</string>
+    <string name="login_signup">Sign up</string>
+    <string name="login_conditions">By joining you agree with the terms and conditions.</string>
 
 </resources>
