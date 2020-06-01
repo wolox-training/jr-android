@@ -55,7 +55,7 @@ public final class LoginFragment extends WolmoFragment<LoginPresenter> implement
 
     @Override
     public void goToHomePage() {
-        if (!emailIsInvalid() && !passwordIsInvalid()) {
+        if (!anyFieldsAreEmpty() && !emailIsInvalid()) {
             Intent intent = new Intent(getActivity(), HomeActivity.class);
             startActivity(intent);
         }
@@ -67,28 +67,33 @@ public final class LoginFragment extends WolmoFragment<LoginPresenter> implement
         startActivity(intent);
     }
 
+    private boolean anyFieldsAreEmpty() {
+        TextView email = getView().findViewById(R.id.vLoginEmailField);
+        boolean emailIsEmpty = "".equals(email.getText().toString());
+
+        TextView password = getView().findViewById(R.id.vLoginPasswordField);
+        boolean passwordIsEmpty = "".equals(password.getText().toString());
+
+        if (emailIsEmpty) {
+            email.setError("The email is required.");
+        }
+        if (passwordIsEmpty) {
+            password.setError("The password is required.");
+        }
+
+        return emailIsEmpty || passwordIsEmpty;
+    }
+
     private boolean emailIsInvalid() {
         TextView email = getView().findViewById(R.id.vLoginEmailField);
 
-        boolean emailIsEmpty = "".equals(email.getText().toString());
         boolean emailIsInvalid = !email.getText().toString().matches(REGEX_EMAIL);
 
-        if (emailIsEmpty) {
-            email.setError("The email cannot be empty.");
-        }
         if (emailIsInvalid) {
             email.setError("The email does not have the correct format.");
         }
 
-        return emailIsEmpty || emailIsInvalid;
+        return emailIsInvalid;
     }
 
-    private boolean passwordIsInvalid() {
-        TextView password = getView().findViewById(R.id.vLoginPasswordField);
-        boolean passwordIsInvalid = "".equals(password.getText().toString());
-        if (passwordIsInvalid) {
-            password.setError("The password cannot be empty.");
-        }
-        return passwordIsInvalid;
-    }
 }
