@@ -36,11 +36,11 @@ public final class LoginFragment extends WolmoFragment<LoginPresenter> implement
 
     @Override
     public void setListeners() {
-        getView().findViewById(R.id.terms_and_conditions_text)
+        getView().findViewById(R.id.vLoginTermsAndConditionsText)
                 .setOnClickListener(it -> getPresenter().onTermsAndConditionsClicked());
-        getView().findViewById(R.id.login_button)
+        getView().findViewById(R.id.vLoginLoginButton)
                 .setOnClickListener(it -> getPresenter().onLoginClicked());
-        getView().findViewById(R.id.signup_button)
+        getView().findViewById(R.id.vLoginSignupButton)
                 .setOnClickListener(it -> getPresenter().onSignupClicked());
     }
 
