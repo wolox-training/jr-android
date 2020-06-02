@@ -13,7 +13,6 @@ public class LoginPresenter extends BasePresenter<LoginView> {
 
     @Inject
     public LoginPresenter() {
-
     }
 
     public void onTermsAndConditionsClicked() {
@@ -26,6 +25,7 @@ public class LoginPresenter extends BasePresenter<LoginView> {
 
     public void onLoginClicked(String email, String password) {
         if (!fieldsAreEmpty(email, password) && !emailIsInvalid(email)) {
+            this.getView().saveLogin(email, password);
             this.getView().goToHomePage();
         }
     }
@@ -46,7 +46,6 @@ public class LoginPresenter extends BasePresenter<LoginView> {
 
     private boolean emailIsInvalid(String email) {
         boolean emailIsInvalid = !email.matches(REGEX_EMAIL);
-
         if (emailIsInvalid) {
             this.getView().invalidateEmail("The email does not have the correct format.");
         }

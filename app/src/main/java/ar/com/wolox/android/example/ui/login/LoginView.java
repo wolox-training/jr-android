@@ -12,4 +12,6 @@ interface LoginView {
 
     void invalidatePassword(String text);
 
+    void saveLogin(String email, String password);
+
 }

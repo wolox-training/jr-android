@@ -1,6 +1,8 @@
 package ar.com.wolox.android.example.ui.login;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.widget.TextView;
 
@@ -58,6 +60,16 @@ public final class LoginFragment extends WolmoFragment<LoginPresenter> implement
     public void goToHomePage() {
         Intent intent = new Intent(getActivity(), HomeActivity.class);
         startActivity(intent);
+    }
+
+    @Override
+    public void saveLogin(String email, String password) {
+        SharedPreferences.Editor editor = getActivity()
+                .getPreferences(Context.MODE_PRIVATE)
+                .edit();
+        editor.putString("preference_login_email", email);
+        editor.putString("preference_login_password", password);
+        editor.apply();
     }
 
     @Override
