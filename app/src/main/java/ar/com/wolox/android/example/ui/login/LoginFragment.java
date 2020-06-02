@@ -20,11 +20,11 @@ public final class LoginFragment extends WolmoFragment<LoginPresenter> implement
     private static LoginFragment instance;
 
     // Components
-    private final TextView emailField = getView().findViewById(R.id.vLoginEmailField);
-    private final TextView passwordField = getView().findViewById(R.id.vLoginPasswordField);
-    private final Button loginButton = getView().findViewById(R.id.vLoginLoginButton);
-    private final Button signupButton = getView().findViewById(R.id.vLoginSignupButton);
-    private final TextView termsAndConditions = getView().findViewById(R.id.vLoginTermsAndConditionsText);
+    private TextView emailField;
+    private TextView passwordField;
+    private Button loginButton;
+    private Button signupButton;
+    private TextView termsAndConditions;
 
     private LoginFragment() {
     }
@@ -38,6 +38,11 @@ public final class LoginFragment extends WolmoFragment<LoginPresenter> implement
 
     @Override
     public void init() {
+        emailField = getView().findViewById(R.id.vLoginEmailField);
+        passwordField = getView().findViewById(R.id.vLoginPasswordField);
+        loginButton = getView().findViewById(R.id.vLoginLoginButton);
+        signupButton = getView().findViewById(R.id.vLoginSignupButton);
+        termsAndConditions = getView().findViewById(R.id.vLoginTermsAndConditionsText);
     }
 
     @Override
