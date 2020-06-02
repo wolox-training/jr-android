@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.Uri;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.TextView;
 
@@ -38,6 +39,8 @@ public final class LoginFragment extends WolmoFragment<LoginPresenter> implement
 
     @Override
     public void init() {
+        requireActivity().getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_NOTHING);
+
         emailField = getView().findViewById(R.id.vLoginEmailField);
         passwordField = getView().findViewById(R.id.vLoginPasswordField);
         loginButton = getView().findViewById(R.id.vLoginLoginButton);
