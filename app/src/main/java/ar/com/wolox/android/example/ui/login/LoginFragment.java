@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.Uri;
+import android.widget.Button;
 import android.widget.TextView;
 
 import ar.com.wolox.android.R;
@@ -17,6 +18,13 @@ import ar.com.wolox.wolmo.core.fragment.WolmoFragment;
 public final class LoginFragment extends WolmoFragment<LoginPresenter> implements LoginView {
 
     private static LoginFragment instance;
+
+    // Components
+    private final TextView emailField = getView().findViewById(R.id.vLoginEmailField);
+    private final TextView passwordField = getView().findViewById(R.id.vLoginPasswordField);
+    private final Button loginButton = getView().findViewById(R.id.vLoginLoginButton);
+    private final Button signupButton = getView().findViewById(R.id.vLoginSignupButton);
+    private final TextView termsAndConditions = getView().findViewById(R.id.vLoginTermsAndConditionsText);
 
     private LoginFragment() {
     }
@@ -39,14 +47,11 @@ public final class LoginFragment extends WolmoFragment<LoginPresenter> implement
 
     @Override
     public void setListeners() {
-        getView().findViewById(R.id.vLoginTermsAndConditionsText)
-                .setOnClickListener(it -> getPresenter().onTermsAndConditionsClicked());
-        getView().findViewById(R.id.vLoginLoginButton)
-                .setOnClickListener(it -> getPresenter()
-                        .onLoginClicked(((TextView) getView().findViewById(R.id.vLoginEmailField)).getText().toString(),
-                                        ((TextView) getView().findViewById(R.id.vLoginPasswordField)).getText().toString()));
-        getView().findViewById(R.id.vLoginSignupButton)
-                .setOnClickListener(it -> getPresenter().onSignupClicked());
+        termsAndConditions.setOnClickListener(it -> getPresenter().onTermsAndConditionsClicked());
+        loginButton.setOnClickListener(it -> getPresenter()
+                        .onLoginClicked(emailField.getText().toString(),
+                                        passwordField.getText().toString()));
+        signupButton.setOnClickListener(it -> getPresenter().onSignupClicked());
     }
 
     @Override
@@ -74,12 +79,12 @@ public final class LoginFragment extends WolmoFragment<LoginPresenter> implement
 
     @Override
     public void invalidateEmail(String text) {
-        ((TextView) getView().findViewById(R.id.vLoginEmailField)).setError(text);
+        emailField.setError(text);
     }
 
     @Override
     public void invalidatePassword(String text) {
-        ((TextView) getView().findViewById(R.id.vLoginPasswordField)).setError(text);
+        passwordField.setError(text);
     }
 
     @Override
