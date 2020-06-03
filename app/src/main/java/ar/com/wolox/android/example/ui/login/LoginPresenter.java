@@ -2,6 +2,7 @@ package ar.com.wolox.android.example.ui.login;
 
 import javax.inject.Inject;
 
+import ar.com.wolox.android.example.utils.UserSession;
 import ar.com.wolox.wolmo.core.presenter.BasePresenter;
 
 /**
@@ -11,8 +12,11 @@ public class LoginPresenter extends BasePresenter<LoginView> {
     private static final String URL = "http://www.wolox.com.ar";
     private static final String REGEX_EMAIL = "^\\w+@[a-zA-Z_]+?\\.[a-zA-Z]{2,3}$";
 
+    private UserSession userSession;
+
     @Inject
-    public LoginPresenter() {
+    public LoginPresenter(UserSession userSession) {
+        this.userSession = userSession;
     }
 
     public void onTermsAndConditionsClicked() {
@@ -25,7 +29,7 @@ public class LoginPresenter extends BasePresenter<LoginView> {
 
     public void onLoginClicked(String email, String password) {
         if (!fieldsAreEmpty(email, password) && !emailIsInvalid(email)) {
-            this.getView().saveLogin(email, password);
+            userSession.setUsername(email);
             this.getView().goToHomePage();
         }
     }
