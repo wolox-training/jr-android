@@ -4,7 +4,7 @@ import ar.com.wolox.android.R;
 import ar.com.wolox.wolmo.core.activity.WolmoActivity;
 
 /**
- *
+ *  Session activity. It will be in charge of managing the logged user's info.
  */
 public class SessionActivity extends WolmoActivity {
     @Override

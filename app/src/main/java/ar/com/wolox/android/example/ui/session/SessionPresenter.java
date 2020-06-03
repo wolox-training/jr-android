@@ -8,7 +8,7 @@ import ar.com.wolox.android.example.utils.UserSession;
 import ar.com.wolox.wolmo.core.presenter.BasePresenter;
 
 /**
- *
+ *  Session presenter class
  */
 public class SessionPresenter extends BasePresenter<SessionView> {
 
