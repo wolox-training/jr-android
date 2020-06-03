@@ -1,5 +1,7 @@
 package ar.com.wolox.android.example.ui.login;
 
+import android.util.Patterns;
+
 import javax.inject.Inject;
 
 import ar.com.wolox.android.example.utils.UserSession;
@@ -10,7 +12,6 @@ import ar.com.wolox.wolmo.core.presenter.BasePresenter;
  */
 public class LoginPresenter extends BasePresenter<LoginView> {
     private static final String URL = "http://www.wolox.com.ar";
-    private static final String REGEX_EMAIL = "^\\w+@[a-zA-Z_]+?\\.[a-zA-Z]{2,3}$";
 
     private UserSession userSession;
 
@@ -49,7 +50,7 @@ public class LoginPresenter extends BasePresenter<LoginView> {
     }
 
     private boolean emailIsInvalid(String email) {
-        boolean emailIsInvalid = !email.matches(REGEX_EMAIL);
+        boolean emailIsInvalid = !Patterns.EMAIL_ADDRESS.matcher(email).matches();
         if (emailIsInvalid) {
             this.getView().invalidateEmail("The email does not have the correct format.");
         }
