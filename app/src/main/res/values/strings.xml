@@ -23,5 +23,10 @@
     <string name="login_text_login">Log in</string>
     <string name="login_text_signup">Sign up</string>
     <string name="login_conditions">By joining you agree with the terms and conditions.</string>
-    
+
+    <!-- Errors -->
+    <string name="error_empty_email">The email cannot be empty.</string>
+    <string name="error_invalid_email">The email does not have the correct format.</string>
+    <string name="error_empty_password">The password cannot be empty.</string>
+
 </resources>

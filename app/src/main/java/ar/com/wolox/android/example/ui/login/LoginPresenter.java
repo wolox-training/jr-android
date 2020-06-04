@@ -2,14 +2,16 @@ package ar.com.wolox.android.example.ui.login;
 
 import android.util.Patterns;
 
+import com.google.common.base.Strings;
+
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.inject.Inject;
 
 import ar.com.wolox.android.example.utils.UserSession;
 import ar.com.wolox.wolmo.core.presenter.BasePresenter;
 
-/**
- *  Login presenter class 
- */
 public class LoginPresenter extends BasePresenter<LoginView> {
     private static final String URL = "http://www.wolox.com.ar";
 
@@ -29,33 +31,53 @@ public class LoginPresenter extends BasePresenter<LoginView> {
     }
 
     public void onLoginClicked(String email, String password) {
-        if (!fieldsAreEmpty(email, password) && !emailIsInvalid(email)) {
+        List<ErrorCase> errors = getErrors(email, password);
+        if (errors.isEmpty()) {
             userSession.setUsername(email);
             this.getView().goToHomePage();
+        } else {
+            for (ErrorCase error : errors) {
+                error.callAction(getView());
+            }
         }
     }
 
-    private boolean fieldsAreEmpty(String email, String password) {
-        boolean emailIsEmpty = "".equals(email);
-        if (emailIsEmpty) {
-            this.getView().invalidateEmail("The email cannot be empty.");
-        }
+    private List<ErrorCase> getErrors(String email, String password) {
+        List<ErrorCase> errors = new ArrayList<>();
 
-        boolean passwordIsEmpty = "".equals(password);
-        if (passwordIsEmpty) {
-            this.getView().invalidatePassword("The password cannot be empty.");
-        }
-
-        return emailIsEmpty || passwordIsEmpty;
-    }
-
-    private boolean emailIsInvalid(String email) {
+        boolean emailIsEmpty = Strings.isNullOrEmpty(email);
+        boolean passwordIsEmpty = Strings.isNullOrEmpty(password);
         boolean emailIsInvalid = !Patterns.EMAIL_ADDRESS.matcher(email).matches();
-        if (emailIsInvalid) {
-            this.getView().invalidateEmail("The email does not have the correct format.");
+
+        if (emailIsEmpty) {
+            errors.add(ErrorCase.EMPTY_EMAIL);
+        } else if (emailIsInvalid) {
+            errors.add(ErrorCase.INVALID_EMAIL);
+        }
+        if (passwordIsEmpty) {
+            errors.add(ErrorCase.EMPTY_PASSWORD);
         }
 
-        return emailIsInvalid;
+        return errors;
     }
 
+    private enum ErrorCase {
+        EMPTY_EMAIL {
+            public void callAction(LoginView view) {
+                view.invalidateEmptyEmail();
+            }
+        },
+        EMPTY_PASSWORD {
+            public void callAction(LoginView view) {
+                view.invalidateEmptyPassword();
+            }
+        },
+        INVALID_EMAIL {
+            public void callAction(LoginView view) {
+                view.invalidateEmailFormat();
+            }
+        };
+
+        public abstract void callAction(LoginView view);
+    }
 }

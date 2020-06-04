@@ -1,8 +1,6 @@
 package ar.com.wolox.android.example.ui.login;
 
-import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.net.Uri;
 import android.view.WindowManager;
 import android.widget.Button;
@@ -13,14 +11,10 @@ import ar.com.wolox.android.example.ui.home.HomeActivity;
 import ar.com.wolox.android.example.ui.signup.SignupActivity;
 import ar.com.wolox.wolmo.core.fragment.WolmoFragment;
 
-/**
- *  Login fragment class
- */
 public final class LoginFragment extends WolmoFragment<LoginPresenter> implements LoginView {
 
     private static LoginFragment instance;
 
-    // Components
     private TextView emailField;
     private TextView passwordField;
     private Button loginButton;
@@ -76,23 +70,18 @@ public final class LoginFragment extends WolmoFragment<LoginPresenter> implement
     }
 
     @Override
-    public void saveLogin(String email, String password) {
-        SharedPreferences.Editor editor = getActivity()
-                .getPreferences(Context.MODE_PRIVATE)
-                .edit();
-        editor.putString("preference_login_email", email);
-        editor.putString("preference_login_password", password);
-        editor.apply();
+    public void invalidateEmptyEmail() {
+        emailField.setError(getString(R.string.error_empty_email));
     }
 
     @Override
-    public void invalidateEmail(String text) {
-        emailField.setError(text);
+    public void invalidateEmailFormat() {
+        emailField.setError(getString(R.string.error_invalid_email));
     }
 
     @Override
-    public void invalidatePassword(String text) {
-        passwordField.setError(text);
+    public void invalidateEmptyPassword() {
+        passwordField.setError(getString(R.string.error_empty_password));
     }
 
     @Override

@@ -7,9 +7,6 @@ import ar.com.wolox.android.example.ui.home.HomeActivity;
 import ar.com.wolox.android.example.ui.login.LoginActivity;
 import ar.com.wolox.wolmo.core.fragment.WolmoFragment;
 
-/**
- *  Session fragment class
- */
 public class SessionFragment extends WolmoFragment<SessionPresenter> implements SessionView {
 
     private static SessionFragment instance;
