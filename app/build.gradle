@@ -149,4 +149,7 @@ dependencies {
     // Guava
     implementation "com.google.guava:guava:29.0-jre"
 
+    // Annotations
+    implementation 'com.android.support:support-annotations:28.0.0'
+
 }

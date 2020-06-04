@@ -9,6 +9,7 @@ import java.util.List;
 
 import javax.inject.Inject;
 
+import androidx.annotation.NonNull;
 import ar.com.wolox.android.example.utils.UserSession;
 import ar.com.wolox.wolmo.core.presenter.BasePresenter;
 
@@ -30,7 +31,7 @@ public class LoginPresenter extends BasePresenter<LoginView> {
         this.getView().goToSignupView();
     }
 
-    public void onLoginClicked(String email, String password) {
+    public void onLoginClicked(@NonNull String email, @NonNull String password) {
         List<ErrorCase> errors = getErrors(email, password);
         if (errors.isEmpty()) {
             userSession.setUsername(email);
