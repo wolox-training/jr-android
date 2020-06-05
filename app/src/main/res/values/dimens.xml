@@ -4,6 +4,7 @@
     <dimen name="static_spacing_tiniest">1dp</dimen>
     <dimen name="static_spacing_tiny">2dp</dimen>
     <dimen name="static_spacing_small">4dp</dimen>
+    <dimen name="static_spacing_medium_small">6dp</dimen>
     <dimen name="static_spacing_medium">8dp</dimen>
     <dimen name="static_spacing_medium_extra">16dp</dimen>
     <dimen name="static_spacing_large">20dp</dimen>
@@ -23,6 +24,7 @@
     <dimen name="spacing_medium_extra">12dp</dimen>
     <dimen name="spacing_large">16dp</dimen>
     <dimen name="spacing_large_extra">22dp</dimen>
+    <dimen name="spacing_large_big">24dp</dimen>
     <dimen name="spacing_big">28dp</dimen>
     <dimen name="spacing_big_extra">32dp</dimen>
     <dimen name="spacing_huge">38dp</dimen>
@@ -45,5 +47,16 @@
     <dimen name="font_big">22sp</dimen>
     <dimen name="font_huge">24sp</dimen>
 
-    <!-- Add your custom dimens here -->
+    <!-- Login -->
+    <dimen name="login_cover_width">430dp</dimen>
+    <dimen name="login_cover_height">195dp</dimen>
+    <dimen name="login_logo_height">160dp</dimen>
+    <dimen name="login_logo_width">228dp</dimen>
+    <dimen name="login_logo_margin_top">100dp</dimen>
+    <dimen name="login_field_height">56dp</dimen>
+    <dimen name="login_email_margin_top">260dp</dimen>
+    <dimen name="login_field_margin_top">2dp</dimen>
+    <dimen name="login_button_login_margin_top">15dp</dimen>
+    <dimen name="login_button_signup_margin_bottom">100dp</dimen>
+
 </resources>
