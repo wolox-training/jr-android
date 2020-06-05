@@ -71,8 +71,11 @@ public class LoginPresenter extends BasePresenter<LoginView> {
 
     private void authenticate(String email, String password) {
         UserAuthService userAuthService = retrofitService.getService(UserAuthService.class);
+        userAuthService.findUserByEmailAndPassword(email).enqueue(getCallback(email, password));
+    }
 
-        userAuthService.findUserByEmailAndPassword(email).enqueue(new Callback<List<User>>() {
+    private Callback<List<User>> getCallback(String email, String password) {
+        return new Callback<List<User>>() {
             @Override
             public void onResponse(@NonNull Call<List<User>> call, @NonNull Response<List<User>> response) {
                 List<User> users = response.body();
@@ -87,7 +90,7 @@ public class LoginPresenter extends BasePresenter<LoginView> {
             public void onFailure(@NonNull Call<List<User>> call, @NonNull Throwable t) {
                 getView().invalidateLogin();
             }
-        });
+        };
     }
 
     private enum ErrorCase {
@@ -109,4 +112,5 @@ public class LoginPresenter extends BasePresenter<LoginView> {
 
         public abstract void callAction(LoginView view);
     }
+
 }
