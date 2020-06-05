@@ -1,11 +1,10 @@
 package ar.com.wolox.android.example.ui.session;
 
-import com.google.common.base.Strings;
-
 import javax.inject.Inject;
 
 import ar.com.wolox.android.example.utils.UserSession;
 import ar.com.wolox.wolmo.core.presenter.BasePresenter;
+import kotlin.text.StringsKt;
 
 /**
  *  Session presenter class
@@ -20,7 +19,7 @@ public class SessionPresenter extends BasePresenter<SessionView> {
     }
 
     public void loadUserInfo() {
-        if (Strings.isNullOrEmpty(userSession.getUsername())) {
+        if (StringsKt.isBlank(userSession.getUsername())) {
             getView().goToLoginPage();
         } else {
             getView().goToHome();

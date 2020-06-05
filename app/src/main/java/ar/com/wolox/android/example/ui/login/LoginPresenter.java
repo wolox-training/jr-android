@@ -2,8 +2,6 @@ package ar.com.wolox.android.example.ui.login;
 
 import android.util.Patterns;
 
-import com.google.common.base.Strings;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -12,6 +10,7 @@ import javax.inject.Inject;
 import androidx.annotation.NonNull;
 import ar.com.wolox.android.example.utils.UserSession;
 import ar.com.wolox.wolmo.core.presenter.BasePresenter;
+import kotlin.text.StringsKt;
 
 public class LoginPresenter extends BasePresenter<LoginView> {
     private static final String URL = "http://www.wolox.com.ar";
@@ -46,8 +45,8 @@ public class LoginPresenter extends BasePresenter<LoginView> {
     private List<ErrorCase> getErrors(String email, String password) {
         List<ErrorCase> errors = new ArrayList<>();
 
-        boolean emailIsEmpty = Strings.isNullOrEmpty(email);
-        boolean passwordIsEmpty = Strings.isNullOrEmpty(password);
+        boolean emailIsEmpty = StringsKt.isBlank(email);
+        boolean passwordIsEmpty = StringsKt.isBlank(password);
         boolean emailIsInvalid = !Patterns.EMAIL_ADDRESS.matcher(email).matches();
 
         if (emailIsEmpty) {
