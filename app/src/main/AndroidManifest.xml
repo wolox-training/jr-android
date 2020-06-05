@@ -14,7 +14,7 @@
         android:theme="@style/AppTheme">
 
         <activity
-            android:name=".example.ui.login.LoginActivity"
+            android:name=".example.ui.session.SessionActivity"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustResize">
 
@@ -24,6 +24,10 @@
             </intent-filter>
 
         </activity>
+
+        <activity
+            android:name=".example.ui.login.LoginActivity"
+            android:screenOrientation="portrait" />
 
         <activity
             android:name=".example.ui.viewpager.ViewPagerActivity"
