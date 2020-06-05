@@ -20,6 +20,7 @@ public class SessionPresenter extends BasePresenter<SessionView> {
     }
 
     public void loadUserInfo() {
+        userSession.setUsername("");
         if (Strings.isNullOrEmpty(userSession.getUsername())) {
             getView().goToLoginPage();
         } else {

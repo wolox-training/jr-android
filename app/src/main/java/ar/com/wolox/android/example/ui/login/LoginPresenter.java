@@ -10,17 +10,25 @@ import java.util.List;
 import javax.inject.Inject;
 
 import androidx.annotation.NonNull;
+import ar.com.wolox.android.example.model.User;
+import ar.com.wolox.android.example.service.UserAuthService;
 import ar.com.wolox.android.example.utils.UserSession;
 import ar.com.wolox.wolmo.core.presenter.BasePresenter;
+import ar.com.wolox.wolmo.networking.retrofit.RetrofitServices;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class LoginPresenter extends BasePresenter<LoginView> {
     private static final String URL = "http://www.wolox.com.ar";
 
     private UserSession userSession;
+    private RetrofitServices retrofitService;
 
     @Inject
-    public LoginPresenter(UserSession userSession) {
+    public LoginPresenter(UserSession userSession, RetrofitServices retrofitService) {
         this.userSession = userSession;
+        this.retrofitService = retrofitService;
     }
 
     public void onTermsAndConditionsClicked() {
@@ -34,8 +42,7 @@ public class LoginPresenter extends BasePresenter<LoginView> {
     public void onLoginClicked(@NonNull String email, @NonNull String password) {
         List<ErrorCase> errors = getErrors(email, password);
         if (errors.isEmpty()) {
-            userSession.setUsername(email);
-            this.getView().goToHomePage();
+            authenticate(email, password);
         } else {
             for (ErrorCase error : errors) {
                 error.callAction(getView());
@@ -60,6 +67,27 @@ public class LoginPresenter extends BasePresenter<LoginView> {
         }
 
         return errors;
+    }
+
+    private void authenticate(String email, String password) {
+        UserAuthService userAuthService = retrofitService.getService(UserAuthService.class);
+
+        userAuthService.findUserByEmailAndPassword(email).enqueue(new Callback<List<User>>() {
+            @Override
+            public void onResponse(@NonNull Call<List<User>> call, @NonNull Response<List<User>> response) {
+                List<User> users = response.body();
+                if (users != null && !users.isEmpty() && users.get(0).getPassword().equals(password)) {
+                    userSession.setUsername(email);
+                    getView().goToHomePage();
+                } else {
+                    getView().invalidateLogin();
+                }
+            }
+            @Override
+            public void onFailure(@NonNull Call<List<User>> call, @NonNull Throwable t) {
+                getView().invalidateLogin();
+            }
+        });
     }
 
     private enum ErrorCase {

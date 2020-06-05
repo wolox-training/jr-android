@@ -14,4 +14,6 @@ interface LoginView {
 
     void invalidateEmptyPassword();
 
+    void invalidateLogin();
+
 }

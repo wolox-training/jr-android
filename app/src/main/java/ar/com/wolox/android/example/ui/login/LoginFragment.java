@@ -85,6 +85,11 @@ public final class LoginFragment extends WolmoFragment<LoginPresenter> implement
     }
 
     @Override
+    public void invalidateLogin() {
+        passwordField.setError(getString(R.string.error_bad_login));
+    }
+
+    @Override
     public void goToSignupView() {
         Intent intent = new Intent(getActivity(), SignupActivity.class);
         startActivity(intent);
