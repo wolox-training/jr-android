@@ -6,6 +6,7 @@ import android.view.Gravity;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -23,6 +24,7 @@ public final class LoginFragment extends WolmoFragment<LoginPresenter> implement
     private Button loginButton;
     private Button signupButton;
     private TextView termsAndConditions;
+    private ProgressBar progressBar;
 
     private LoginFragment() {
     }
@@ -43,6 +45,7 @@ public final class LoginFragment extends WolmoFragment<LoginPresenter> implement
         loginButton = getView().findViewById(R.id.vLoginLoginButton);
         signupButton = getView().findViewById(R.id.vLoginSignupButton);
         termsAndConditions = getView().findViewById(R.id.vLoginTermsAndConditionsText);
+        progressBar = getView().findViewById(R.id.vLoginProgressBar);
     }
 
     @Override
@@ -99,12 +102,12 @@ public final class LoginFragment extends WolmoFragment<LoginPresenter> implement
 
     @Override
     public void showLoading() {
-        getView().findViewById(R.id.vLoginProgressBar).setVisibility(View.VISIBLE);
+        progressBar.setVisibility(View.VISIBLE);
     }
 
     @Override
     public void stopLoading() {
-        getView().findViewById(R.id.vLoginProgressBar).setVisibility(View.INVISIBLE);
+        progressBar.setVisibility(View.INVISIBLE);
     }
 
     @Override
