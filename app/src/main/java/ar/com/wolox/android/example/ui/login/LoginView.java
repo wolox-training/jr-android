@@ -16,4 +16,10 @@ interface LoginView {
 
     void invalidateLogin();
 
+    void invalidateConnection();
+
+    void showLoading();
+
+    void stopLoading();
+
 }

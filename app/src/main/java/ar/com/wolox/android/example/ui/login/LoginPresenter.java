@@ -74,6 +74,7 @@ public class LoginPresenter extends BasePresenter<LoginView> {
     }
 
     private Callback<List<User>> getCallback(String email, String password) {
+        getView().showLoading();
         return new Callback<List<User>>() {
             @Override
             public void onResponse(@NonNull Call<List<User>> call, @NonNull Response<List<User>> response) {
@@ -81,13 +82,16 @@ public class LoginPresenter extends BasePresenter<LoginView> {
                 if (users != null && !users.isEmpty() && users.get(0).getPassword().equals(password)) {
                     userSession.setUsername(email);
                     getView().goToHomePage();
+                    getView().stopLoading();
                 } else {
                     getView().invalidateLogin();
+                    getView().stopLoading();
                 }
             }
             @Override
             public void onFailure(@NonNull Call<List<User>> call, @NonNull Throwable t) {
-                getView().invalidateLogin();
+                getView().invalidateConnection();
+                getView().stopLoading();
             }
         };
     }
