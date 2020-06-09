@@ -7,7 +7,6 @@ import ar.com.wolox.android.example.ui.home.HomeFragment;
 import ar.com.wolox.android.example.ui.login.LoginFragment;
 import ar.com.wolox.android.example.utils.UserSession;
 import ar.com.wolox.wolmo.core.activity.WolmoActivity;
-import kotlin.text.StringsKt;
 
 /**
  *  Session activity. It will be in charge of managing the logged user's info.
@@ -24,7 +23,7 @@ public class SessionActivity extends WolmoActivity {
 
     @Override
     protected void init() {
-        if (StringsKt.isBlank(userSession.getUsername())) {
+        if (userSession.isOngoingSession()) {
             replaceFragment(R.id.vActivityBaseContent, LoginFragment.newInstance());
         } else {
             replaceFragment(R.id.vActivityBaseContent, HomeFragment.newInstance());
