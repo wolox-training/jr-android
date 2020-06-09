@@ -10,5 +10,5 @@ import retrofit2.http.Query;
 public interface UserAuthService {
 
     @GET("users")
-    Call<List<User>> findUserByEmailAndPassword(@Query("email") String email);
+    Call<List<User>> findUserByEmail(@Query("email") String email);
 }

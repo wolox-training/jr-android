@@ -70,7 +70,11 @@ public class LoginPresenter extends BasePresenter<LoginView> {
 
     private void authenticate(String email, String password) {
         UserAuthService userAuthService = retrofitService.getService(UserAuthService.class);
-        userAuthService.findUserByEmailAndPassword(email).enqueue(getCallback(email, password));
+        userAuthService.findUserByEmail(email).enqueue(getCallback(email, password));
+    }
+
+    private boolean infoIsValid(List<User> users, String password) {
+        return users != null && !users.isEmpty() && users.get(0).getPassword().equals(password);
     }
 
     private Callback<List<User>> getCallback(String email, String password) {
@@ -78,7 +82,7 @@ public class LoginPresenter extends BasePresenter<LoginView> {
             @Override
             public void onResponse(@NonNull Call<List<User>> call, @NonNull Response<List<User>> response) {
                 List<User> users = response.body();
-                if (users != null && !users.isEmpty() && users.get(0).getPassword().equals(password)) {
+                if (infoIsValid(users, password)) {
                     userSession.setUsername(email);
                     getView().goToHomePage();
                 } else {
@@ -111,5 +115,4 @@ public class LoginPresenter extends BasePresenter<LoginView> {
 
         public abstract void callAction(LoginView view);
     }
-
 }
