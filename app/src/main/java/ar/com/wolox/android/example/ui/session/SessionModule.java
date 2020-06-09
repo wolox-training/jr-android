@@ -9,7 +9,4 @@ public abstract class SessionModule {
     @ContributesAndroidInjector
     protected abstract SessionActivity sessionActivity();
 
-    @ContributesAndroidInjector
-    protected abstract SessionFragment sessionFragment();
-
 }

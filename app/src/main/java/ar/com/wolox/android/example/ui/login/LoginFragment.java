@@ -2,9 +2,13 @@ package ar.com.wolox.android.example.ui.login;
 
 import android.content.Intent;
 import android.net.Uri;
+import android.view.Gravity;
+import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
+import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import ar.com.wolox.android.R;
 import ar.com.wolox.android.example.ui.home.HomeActivity;
@@ -20,6 +24,7 @@ public final class LoginFragment extends WolmoFragment<LoginPresenter> implement
     private Button loginButton;
     private Button signupButton;
     private TextView termsAndConditions;
+    private ProgressBar progressBar;
 
     private LoginFragment() {
     }
@@ -40,6 +45,7 @@ public final class LoginFragment extends WolmoFragment<LoginPresenter> implement
         loginButton = getView().findViewById(R.id.vLoginLoginButton);
         signupButton = getView().findViewById(R.id.vLoginSignupButton);
         termsAndConditions = getView().findViewById(R.id.vLoginTermsAndConditionsText);
+        progressBar = getView().findViewById(R.id.vLoginProgressBar);
     }
 
     @Override
@@ -86,7 +92,22 @@ public final class LoginFragment extends WolmoFragment<LoginPresenter> implement
 
     @Override
     public void invalidateLogin() {
-        passwordField.setError(getString(R.string.error_bad_login));
+        generateToastError(getString(R.string.error_bad_login));
+    }
+
+    @Override
+    public void invalidateConnection() {
+        generateToastError(getString(R.string.error_connection));
+    }
+
+    @Override
+    public void showLoading() {
+        progressBar.setVisibility(View.VISIBLE);
+    }
+
+    @Override
+    public void stopLoading() {
+        progressBar.setVisibility(View.INVISIBLE);
     }
 
     @Override
@@ -95,4 +116,10 @@ public final class LoginFragment extends WolmoFragment<LoginPresenter> implement
         startActivity(intent);
     }
 
+    private void generateToastError(String errorMessage) {
+        Toast toast = Toast.makeText(getContext(), errorMessage, Toast.LENGTH_SHORT);
+        toast.setGravity(Gravity.BOTTOM | Gravity.CENTER,
+                0, (int) getResources().getDimension(R.dimen.spacing_huge_extra));
+        toast.show();
+    }
 }
