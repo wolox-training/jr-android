@@ -28,5 +28,7 @@
     <string name="error_empty_email">The email cannot be empty.</string>
     <string name="error_invalid_email">The email does not have the correct format.</string>
     <string name="error_empty_password">The password cannot be empty.</string>
+    <string name="error_bad_login">Incorrect email and/or password.</string>
+    <string name="error_connection">Communication error. Check your internet connection and try again.</string>
 
 </resources>

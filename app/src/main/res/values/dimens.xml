@@ -58,5 +58,7 @@
     <dimen name="login_field_margin_top">2dp</dimen>
     <dimen name="login_button_login_margin_top">15dp</dimen>
     <dimen name="login_button_signup_margin_bottom">100dp</dimen>
+    <dimen name="login_progress_bar_margin_top">36dp</dimen>
+    <dimen name="login_progress_bar_margin_bottom">56dp</dimen>
 
 </resources>
