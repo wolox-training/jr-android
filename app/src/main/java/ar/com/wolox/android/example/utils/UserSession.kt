@@ -8,7 +8,7 @@ import javax.inject.Inject
 @ApplicationScope
 class UserSession @Inject constructor(private val sharedPreferencesManager: SharedPreferencesManager) {
 
-    fun isOngoingSession() : Boolean = username.isNullOrBlank()
+    fun isOngoingSession(): Boolean = username.isNullOrBlank()
 
     // Really, we don't need to query the username because this instance live as long as the
     // application, but we should add a check in case Android decides to kill the application

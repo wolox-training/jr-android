@@ -23,6 +23,7 @@ public class SessionActivity extends WolmoActivity {
 
     @Override
     protected void init() {
+        userSession.setUsername("");
         if (userSession.isOngoingSession()) {
             replaceFragment(R.id.vActivityBaseContent, LoginFragment.newInstance());
         } else {
