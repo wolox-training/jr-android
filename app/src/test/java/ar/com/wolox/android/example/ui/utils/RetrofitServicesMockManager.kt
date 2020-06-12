@@ -73,10 +73,7 @@ class RetrofitServicesMockManager {
         }
 
         fun mockIncorrectResponse(): List<User> {
-            val user = User()
-            user.email = incorrectEmail
-            user.password = correctPassword
-            return Collections.singletonList(user)
+            return Collections.emptyList()
         }
     }
 }
