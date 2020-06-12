@@ -26,7 +26,7 @@ public class SessionActivity extends WolmoActivity {
         if (userSession.isOngoingSession()) {
             replaceFragment(R.id.vActivityBaseContent, LoginFragment.newInstance());
         } else {
-            replaceFragment(R.id.vActivityBaseContent, HomeFragment.newInstance());
+            replaceFragment(R.id.vActivityBaseContent, HomeFragment.Companion.newInstance());
         }
     }
 }
