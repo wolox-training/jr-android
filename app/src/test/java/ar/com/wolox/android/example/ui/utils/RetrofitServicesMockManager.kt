@@ -8,7 +8,7 @@ import org.mockito.Mockito.mock
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-import java.util.Collections
+import java.util.Collections.singletonList
 
 class RetrofitServicesMockManager {
 
@@ -69,11 +69,11 @@ class RetrofitServicesMockManager {
             val user = User()
             user.email = correctEmail
             user.password = correctPassword
-            return Collections.singletonList(user)
+            return singletonList(user)
         }
 
         fun mockIncorrectResponse(): List<User> {
-            return Collections.emptyList()
+            return emptyList()
         }
     }
 }
