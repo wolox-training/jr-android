@@ -16,17 +16,4 @@ class HomeFragment private constructor() : WolmoFragment<HomePresenter>(), HomeV
     companion object {
         fun newInstance() = HomeFragment()
     }
-
-    override fun setListeners() {
-        vTabNews?.setOnClickListener { presenter.onNewsSelected() }
-        vTabProfile?.setOnClickListener { presenter.onProfileSelected() }
-    }
-
-    override fun onNewsSelected() {
-        // vTabNews.icon.draw(resources.getDrawable(R.drawable.ic_news_list_on))
-    }
-
-    override fun onProfileSelected() {
-        TODO("Not yet implemented")
-    }
 }
