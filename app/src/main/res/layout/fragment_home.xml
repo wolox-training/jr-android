@@ -27,7 +27,7 @@
     <com.google.android.material.tabs.TabLayout
         android:layout_width="@dimen/home_tab_layout_width"
         android:layout_height="@dimen/home_tab_layout_height"
-        android:layout_marginTop="68dp"
+        android:layout_marginTop="@dimen/home_tab_layout_margin_top"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
