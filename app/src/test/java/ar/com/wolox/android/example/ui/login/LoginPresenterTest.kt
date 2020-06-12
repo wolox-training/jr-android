@@ -74,6 +74,7 @@ class LoginPresenterTest : WolmoPresenterTest<LoginView, LoginPresenter>() {
 
         // THEN
         verify(view, times(1)).goToHomePage()
+        verify(view, times(0)).invalidateLogin()
     }
 
     @Test
@@ -88,6 +89,7 @@ class LoginPresenterTest : WolmoPresenterTest<LoginView, LoginPresenter>() {
 
         // THEN
         verify(view, times(0)).goToHomePage()
+        verify(view, times(1)).invalidateLogin()
     }
 
     @Test
@@ -103,5 +105,6 @@ class LoginPresenterTest : WolmoPresenterTest<LoginView, LoginPresenter>() {
 
         // THEN
         verify(view, times(0)).goToHomePage()
+        verify(view, times(1)).invalidateLogin()
     }
 }
