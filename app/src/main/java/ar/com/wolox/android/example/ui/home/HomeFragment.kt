@@ -9,9 +9,7 @@ class HomeFragment private constructor() : WolmoFragment<HomePresenter>(), HomeV
     override fun init() {
     }
 
-    override fun layout(): Int {
-        return R.layout.fragment_home
-    }
+    override fun layout() = R.layout.fragment_home
 
     companion object {
         fun newInstance() = HomeFragment()
