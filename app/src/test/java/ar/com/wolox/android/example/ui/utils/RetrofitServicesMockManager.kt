@@ -59,7 +59,7 @@ class RetrofitServicesMockManager {
             return mockCall
         }
 
-        fun mockCorrectResponse(): List<User> = singletonList(
+        fun mockCorrectResponse(): List<User> = listOf(
             User().apply {
                 this.email = correctEmail
                 this.password = correctPassword
