@@ -19,25 +19,19 @@ class RetrofitServicesMockManager {
         private const val incorrectPassword: String = "incorrectPassword"
         private const val incorrectEmail: String = "incorrectEmail@email.com"
 
-        fun getCorrectUser(): User {
-            val correctUser = User()
-            correctUser.password = correctPassword
-            correctUser.email = correctEmail
-            return correctUser
+        fun getCorrectUser() = User().apply {
+            this.password = correctPassword
+            this.email = correctEmail
         }
 
-        fun getCorrectUserWithIncorrectPassword(): User {
-            val correctUserIncorrectPassword = User()
-            correctUserIncorrectPassword.password = incorrectPassword
-            correctUserIncorrectPassword.email = correctEmail
-            return correctUserIncorrectPassword
+        fun getCorrectUserWithIncorrectPassword() = User().apply {
+            this.password = incorrectPassword
+            this.email = correctEmail
         }
 
-        fun getIncorrectUser(): User {
-            val incorrectUser = User()
-            incorrectUser.password = incorrectPassword
-            incorrectUser.email = incorrectEmail
-            return incorrectUser
+        fun getIncorrectUser() = User().apply {
+            this.password = incorrectPassword
+            this.email = incorrectEmail
         }
 
         fun mockAuthServiceCorrectResponse(): UserAuthService {
@@ -65,15 +59,13 @@ class RetrofitServicesMockManager {
             return mockCall
         }
 
-        fun mockCorrectResponse(): List<User> {
-            val user = User()
-            user.email = correctEmail
-            user.password = correctPassword
-            return singletonList(user)
-        }
+        fun mockCorrectResponse(): List<User> = singletonList(
+            User().apply {
+                this.email = correctEmail
+                this.password = correctPassword
+            }
+        )
 
-        fun mockIncorrectResponse(): List<User> {
-            return emptyList()
-        }
+        fun mockIncorrectResponse(): List<User> = emptyList()
     }
 }
