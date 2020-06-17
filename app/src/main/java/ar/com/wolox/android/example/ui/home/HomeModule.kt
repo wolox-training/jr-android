@@ -7,8 +7,8 @@ import dagger.android.ContributesAndroidInjector
 abstract class HomeModule {
 
     @ContributesAndroidInjector
-    protected abstract fun homeActivity(): HomeActivity?
+    protected abstract fun homeActivity(): HomeActivity
 
     @ContributesAndroidInjector
-    protected abstract fun homeFragment(): HomeFragment?
+    protected abstract fun homeFragment(): HomeFragment
 }
