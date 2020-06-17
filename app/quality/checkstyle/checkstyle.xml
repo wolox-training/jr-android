@@ -34,7 +34,7 @@
         <module name="SuppressWarningsHolder" />
 
         <!-- Checks for Javadoc comments. See http://checkstyle.sf.net/config_javadoc.html -->
-        <module name="JavadocType">
+        <!--<module name="JavadocType">
             <property name="scope"
                       value="protected" />
         </module>
@@ -50,7 +50,7 @@
                       value="protected" />
             <property name="checkFirstSentence"
                       value="false" />
-        </module>
+        </module>-->
 
         <!-- Start lines with tabs instead of spaces. -->
         <module name="RegexpSinglelineJava">
