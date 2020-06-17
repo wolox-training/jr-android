@@ -1,13 +1,12 @@
 package ar.com.wolox.android.example.ui.login;
 
-import android.util.Patterns;
-
 import java.util.ArrayList;
 import java.util.List;
 
 import javax.inject.Inject;
 
 import androidx.annotation.NonNull;
+import androidx.core.util.PatternsCompat;
 import ar.com.wolox.android.example.model.User;
 import ar.com.wolox.android.example.service.UserAuthService;
 import ar.com.wolox.android.example.utils.UserSession;
@@ -54,7 +53,7 @@ public class LoginPresenter extends BasePresenter<LoginView> {
 
         boolean emailIsEmpty = StringsKt.isBlank(email);
         boolean passwordIsEmpty = StringsKt.isBlank(password);
-        boolean emailIsInvalid = !Patterns.EMAIL_ADDRESS.matcher(email).matches();
+        boolean emailIsInvalid = !PatternsCompat.EMAIL_ADDRESS.matcher(email).matches();
 
         if (emailIsEmpty) {
             errors.add(ErrorCase.EMPTY_EMAIL);
