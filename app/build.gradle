@@ -152,4 +152,7 @@ dependencies {
     // FAB
     implementation 'com.melnykov:floatingactionbutton:1.3.0'
 
+    // Refresh layout
+    implementation 'androidx.swiperefreshlayout:swiperefreshlayout:1.0.0'
+
 }
