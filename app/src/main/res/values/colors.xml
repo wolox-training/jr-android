@@ -8,5 +8,6 @@
     <color name="colorPrimaryTransparent">#CC1D9BD7</color>
     <color name="colorAccentTransparent">#CC8DC63F</color>
     <color name="colorDivider">#C8C8C8</color>
+    <color name="colorPhoto">#9E9E9E</color>
 
 </resources>

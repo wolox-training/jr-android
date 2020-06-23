@@ -75,5 +75,8 @@
     <dimen name="home_news_list_width">409dp</dimen>
     <dimen name="home_news_fab_width">56dp</dimen>
     <dimen name="home_news_fab_margin">20dp</dimen>
+    <dimen name="home_news_photo_side">85dp</dimen>
+    <dimen name="home_news_content_margin">10dp</dimen>
+
 
 </resources>
