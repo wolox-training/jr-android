@@ -1,26 +1,29 @@
 package ar.com.wolox.android.example.ui.home
 
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import ar.com.wolox.android.R
-import ar.com.wolox.android.example.model.NewsArticle
+import ar.com.wolox.android.example.ui.news.NewsFragment
+import ar.com.wolox.android.example.ui.profile.ProfileFragment
+import ar.com.wolox.wolmo.core.adapter.viewpager.SimpleFragmentPagerAdapter
 import ar.com.wolox.wolmo.core.fragment.WolmoFragment
-import kotlinx.android.synthetic.main.news_tab.vListNews
+import kotlinx.android.synthetic.main.fragment_home.*
+import javax.inject.Inject
 
 class HomeFragment private constructor() : WolmoFragment<HomePresenter>(), HomeView {
 
-    private lateinit var recyclerView: RecyclerView
-    private lateinit var viewAdapter: RecyclerView.Adapter<*>
-    private lateinit var viewManager: RecyclerView.LayoutManager
+    @Inject
+    lateinit var newsFragment: NewsFragment
+
+    @Inject
+    lateinit var profileFragment: ProfileFragment
 
     override fun init() {
-        viewManager = LinearLayoutManager(activity)
-        viewAdapter = NewsListAdapter(listOf(NewsArticle("test", "test", "test", false)), activity!!)
-
-        recyclerView = vListNews.apply {
-            layoutManager = viewManager
-            adapter = viewAdapter
-        }
+        val fragmentPagerAdapter = SimpleFragmentPagerAdapter(childFragmentManager)
+        fragmentPagerAdapter.addFragments(
+                Pair(newsFragment, getString(R.string.home_news)),
+                Pair(profileFragment, getString(R.string.home_profile))
+        )
+        vContent.adapter = fragmentPagerAdapter
+        vTabLayout.setupWithViewPager(vContent)
     }
 
     override fun layout() = R.layout.fragment_home

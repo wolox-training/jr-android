@@ -1,4 +1,4 @@
-package ar.com.wolox.android.example.ui.home
+package ar.com.wolox.android.example.ui.news
 
 import android.content.Context
 import android.view.LayoutInflater
@@ -14,7 +14,7 @@ class NewsListAdapter constructor(val data: List<NewsArticle>, val context: Cont
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) =
             NewsViewHolder(LayoutInflater.from(context)
-                .inflate(R.layout.news_row, parent, false))
+                    .inflate(R.layout.news_row, parent, false))
 
     override fun getItemCount() = 10
 
