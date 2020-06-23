@@ -70,6 +70,10 @@
     <dimen name="home_logo_margin_top">5dp</dimen>
     <dimen name="home_wolox_margin_left">5dp</dimen>
     <dimen name="home_wolox_margin_top">20dp</dimen>
+
+    <!-- News -->
     <dimen name="home_news_list_width">409dp</dimen>
+    <dimen name="home_news_fab_width">56dp</dimen>
+    <dimen name="home_news_fab_margin">20dp</dimen>
 
 </resources>
