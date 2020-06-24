@@ -29,23 +29,20 @@ class NewsListAdapter constructor(val data: List<NewsArticle>, val context: Cont
 
     override fun onBindViewHolder(holder: NewsViewHolder, position: Int) {
         holder.title.text = data[position].title
-
         holder.text.text = data[position].text
-        truncateContent(holder)
-
         holder.createdAt.text = data[position].createdAt
-
         holder.picture.setImageURI(data[position].picture.httpToHttps())
-
         holder.likes.isChecked = data[position].likes.size > 0
+
+        truncateContent(holder)
+    }
+
+    private fun String.httpToHttps() = this.apply {
+        return replace("http", "https")
     }
 
     private fun truncateContent(holder: NewsViewHolder) {
         holder.text.maxLines = 3
         holder.text.ellipsize = TextUtils.TruncateAt.END
-    }
-
-    private fun String.httpToHttps() = this.apply {
-        replace("http", "https")
     }
 }

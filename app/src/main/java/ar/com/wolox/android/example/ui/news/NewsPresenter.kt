@@ -13,7 +13,7 @@ class NewsPresenter @Inject constructor(val retrofitServices: RetrofitServices) 
 
     fun searchForNews() {
         val newsService: NewsService = retrofitServices.getService(NewsService::class.java)
-        newsService.getNews().enqueue(getCallback())
+        newsService.getNews(page, "createdAt", "desc").enqueue(getCallback())
         view!!.stopLoading()
     }
 
@@ -27,4 +27,8 @@ class NewsPresenter @Inject constructor(val retrofitServices: RetrofitServices) 
     }
 
     private fun showError() = view!!.showConnectionError()
+
+    companion object {
+        val page = 0
+    }
 }
