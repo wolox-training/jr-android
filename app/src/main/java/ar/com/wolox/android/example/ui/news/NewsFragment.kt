@@ -26,8 +26,8 @@ class NewsFragment @Inject constructor() : WolmoFragment<NewsPresenter>(), NewsV
         vNewsRefresh.setOnRefreshListener { presenter.searchForNews() }
     }
 
-    override fun loadNews(list: List<NewsArticle>) {
-        viewAdapter = NewsListAdapter(list, activity!!)
+    override fun loadNews(newsList: List<NewsArticle>) {
+        viewAdapter = NewsListAdapter(newsList, activity!!)
         recyclerView = vListNews.apply {
             layoutManager = viewManager
             adapter = viewAdapter

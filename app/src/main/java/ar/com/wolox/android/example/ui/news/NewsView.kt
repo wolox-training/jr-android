@@ -4,7 +4,7 @@ import ar.com.wolox.android.example.model.NewsArticle
 
 interface NewsView {
 
-    fun loadNews(list: List<NewsArticle>)
+    fun loadNews(newsList: List<NewsArticle>)
 
     fun showConnectionError()
 
