@@ -16,7 +16,7 @@ class NewsListAdapter constructor(val data: List<NewsArticle>, val context: Cont
             NewsViewHolder(LayoutInflater.from(context)
                     .inflate(R.layout.news_row, parent, false))
 
-    override fun getItemCount() = 10
+    override fun getItemCount() = data.size
 
     override fun onBindViewHolder(holder: NewsViewHolder, position: Int) {
     }
