@@ -1,3 +1,9 @@
 package ar.com.wolox.android.example.model
 
-class NewsArticle constructor(val title: String, val content: String, val date: String, val like: Boolean)
+data class NewsArticle constructor(
+    val title: String,
+    val picture: String,
+    val text: String,
+    val createdAt: String,
+    val likes: ArrayList<Int>
+)

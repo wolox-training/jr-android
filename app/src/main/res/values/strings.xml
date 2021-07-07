@@ -35,8 +35,5 @@
     <string name="home_news">News</string>
     <string name="home_profile">Profile</string>
     <string name="home_wolox">Wolox</string>
-    <string name="home_news_title">Ali Connors</string>
-    <string name="home_news_content">I\'ll be in your neighbourhood running errands …</string>
-    <string name="home_news_date">15m</string>
 
 </resources>

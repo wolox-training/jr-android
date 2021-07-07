@@ -5,6 +5,7 @@ import ar.com.wolox.android.example.di.DaggerAppComponent
 import ar.com.wolox.wolmo.core.WolmoApplication
 import ar.com.wolox.wolmo.networking.di.DaggerNetworkingComponent
 import ar.com.wolox.wolmo.networking.di.NetworkingComponent
+import com.facebook.drawee.backends.pipeline.Fresco
 import com.google.gson.FieldNamingPolicy
 import com.readystatesoftware.chuck.ChuckInterceptor
 import com.squareup.leakcanary.LeakCanary
@@ -13,6 +14,11 @@ import okhttp3.logging.HttpLoggingInterceptor
 import okhttp3.logging.HttpLoggingInterceptor.Level
 
 class TrainingApplication : WolmoApplication() {
+
+    override fun onCreate() {
+        super.onCreate()
+        Fresco.initialize(this)
+    }
 
     override fun onInit() {
         // Initialize Application stuff here

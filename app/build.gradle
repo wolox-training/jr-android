@@ -155,4 +155,7 @@ dependencies {
     // Refresh layout
     implementation 'androidx.swiperefreshlayout:swiperefreshlayout:1.0.0'
 
+    // Fresco - image management
+    implementation 'com.facebook.fresco:fresco:2.2.0'
+
 }
